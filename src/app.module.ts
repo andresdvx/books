@@ -1,8 +1,8 @@
 import { Application } from "express";
-import { UserModule } from "./modules/users/user.module";
+import { BooksModule } from "./modules/books/books.module";
 
 export class AppModule {
-  private modules = [new UserModule()];
+  private modules = [new BooksModule()];
 
   constructor() {}
 

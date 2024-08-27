@@ -9,7 +9,7 @@ async function Bootstrap() {
   const appModule = new AppModule();
   appModule.configure(app);
 
-  app.listen(process.env.PORT, () => console.log("server running"));
+  app.listen(process.env.PORT, () => console.log("server running"+process.env.PORT));
 }
 
 Bootstrap();

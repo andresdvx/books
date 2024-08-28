@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { BadRequestError } from "../httpError/httpErrors";
+import { BadRequestError } from "../http/index";
 import { Schema } from "joi";
 
 export const bookValidator =

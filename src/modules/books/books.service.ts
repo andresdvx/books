@@ -1,6 +1,6 @@
 import { PrismaService } from "../../common/prisma/prisma.service";
 import { IBook } from "./interfaces/book.interface";
-import { NotFoundError } from "../../common/httpError/httpErrors";
+import { NotFoundError, InternalServerError } from "../../common/http/index";
 import { Book } from "@prisma/client";
 
 export class BooksService implements IBook {

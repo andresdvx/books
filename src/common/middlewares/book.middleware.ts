@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { BadRequestError } from "../http/index";
+import { BadRequestError, InternalServerError } from "../http/index";
 import { Schema } from "joi";
 
 export const bookValidator =
@@ -12,6 +12,6 @@ export const bookValidator =
       }
       next();
     } catch (error: any) {
-      return res.status(error.statusCode).json(error);
+      throw new InternalServerError('Internal Server Error')
     }
   };

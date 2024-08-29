@@ -7,8 +7,8 @@
    ```
 
 ## Configuración de variables de entorno
-    PORT=4000
-    DATABASE_URL='tu_url_de_base_de_datos'
+    PORT= 4000
+    DATABASE_URL='url de la base de datos'
 
 
 ## Ejecutar el proyecto en modo desarrollo
@@ -20,6 +20,9 @@
 ## End point a consultar
     http://localhost:{PORT}/books
 
+## End point para crear datos de prueba
+
+    http://localhost:{PORT}/books/data
 
 ## Integrantes del Proyecto:
 - Andrés Pacheco Cuadro

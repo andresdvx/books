@@ -19,6 +19,7 @@ export class BooksController {
       this.updateBook.bind(this)
     );
     app.delete("/books/:id", this.deleteBook.bind(this));
+    app.post("/books/data", this.testData.bind(this))
   }
 
   async createBook(req: Request, res: Response) {
@@ -72,6 +73,18 @@ export class BooksController {
       const book = await this.bookService.deleteBook(id);
       return HttpResponse(200, "Book Deleted", res, book);
     } catch (error: any) {
+      console.log(error);
+      return error instanceof HttpError
+        ? res.status(error.statusCode).json(error)
+        : res.status(500).json(error);
+    }
+  }
+
+  async testData(req: Request, res : Response){
+    try{
+      const books = await this.bookService.testData();
+      return HttpResponse(200, 'books', res, books);
+    }catch(error: any){
       console.log(error);
       return error instanceof HttpError
         ? res.status(error.statusCode).json(error)

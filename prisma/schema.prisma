@@ -14,5 +14,5 @@ model Book {
   title           String  
   author          String
   genre           String
-  publicationDate DateTime
+  publicationDate String
 }

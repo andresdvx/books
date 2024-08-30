@@ -15,14 +15,7 @@ export class BooksModule {
   }
 
   public configure(app: Application) {
-    this.prismaService
-      .connect()
-      .then(() => {
-        console.log("Connected to the database");
-      })
-      .catch((error) => {
-        console.error("Error connecting to the database:", error);
-      });
+    this.prismaService.connect();
     this.booksController.router(app);
   }
 }

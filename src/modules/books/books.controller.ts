@@ -50,9 +50,11 @@ export class BooksController {
       const { id } = req.params;
       const book = await this.bookService.getBookById(id);
       return HttpResponse(200, "book", res, book);
-    } catch (error) {
+    } catch (error : any) {
       console.log(error);
-      return res.status(500).json(error);
+      return error instanceof HttpError
+        ? res.status(error.statusCode).json(error)
+        : res.status(500).json(error);
     }
   }
 

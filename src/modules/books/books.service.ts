@@ -18,35 +18,35 @@ export class BooksService implements IBook {
   }
 
   async getBookById(id: string): Promise<Book | null> {
-    return this.prismaService.book.findUnique({ where: { id } });
+    const book = await this.prismaService.book.findUnique({ where: { id } });
+    if (!book) throw new NotFoundError(`book not found with id ${id}`);
+    return book;
   }
 
   async updateBook(id: string, data: Partial<Book>): Promise<Book | null> {
-    return this.prismaService.book
-      .update({
-        where: {
-          id,
-        },
-        data: data,
-      })
-      .catch((error) => {
-        throw new NotFoundError(`book not found with id ${id}`);
-      });
+    const bookFound = await this.getBookById(id);
+    const book = await this.prismaService.book.update({
+      where: {
+        id,
+      },
+      data: data,
+    });
+    return book;
   }
 
   async deleteBook(id: string): Promise<Book | null> {
-    return this.prismaService.book.delete({ where: { id } }).catch((error) => {
-      throw new NotFoundError(`book not found with id ${id}`);
-    });
+    const bookFound = await this.getBookById(id);
+    const book = await this.prismaService.book.delete({ where: { id } });
+    return book;
   }
 
   async testData() {
     return this.prismaService.book.createMany({
       data: booksData,
-    })
+    });
   }
 
-  async deleteData(){
-    return this.prismaService.book.deleteMany({})
+  async deleteData() {
+    return this.prismaService.book.deleteMany({});
   }
 }

@@ -12,6 +12,6 @@ export const bookValidator =
       }
       next();
     } catch (error: any) {
-      throw new InternalServerError('Internal Server Error')
+      return res.status(error.statusCode).json(error);
     }
   };

@@ -22,7 +22,11 @@
 
 ## End point para crear datos de prueba
 
-    http://localhost:{PORT}/books/data
+    http://localhost:{PORT}/createdata
+
+### End point para borrar toda la data
+
+     http://localhost:{PORT}/deletedata
 
 ## Integrantes del Proyecto:
 - Andrés Pacheco Cuadro

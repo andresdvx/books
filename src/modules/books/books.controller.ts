@@ -19,7 +19,8 @@ export class BooksController {
       this.updateBook.bind(this)
     );
     app.delete("/books/:id", this.deleteBook.bind(this));
-    app.post("/books/data", this.testData.bind(this))
+    app.post("/createdata", this.testData.bind(this));
+    app.delete("/deletedata", this.deleteData.bind(this))
   }
 
   async createBook(req: Request, res: Response) {
@@ -95,7 +96,7 @@ export class BooksController {
   async deleteData (req: Request, res: Response){
     try{
       const books = await this.bookService.deleteData();
-      return HttpResponse(200, 'books', res, books);
+      return HttpResponse(200, 'books deleted', res, books);
     }catch(error: any){
       console.log(error);
       return error instanceof HttpError

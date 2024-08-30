@@ -17,14 +17,25 @@
    npm run dev
    ```
 
+## End point a consultar (producción)
+
+    books-production-f33a.up.railway.app/books
+
+## End point para crear datos de prueba (producción)
+
+    books-production-f33a.up.railway.app/createdata
+
+## End point para borrar todos los datos (producción)
+    books-production-f33a.up.railway.app/deletedata
+
 ## End point a consultar
     http://localhost:{PORT}/books
 
-## End point para crear datos de prueba
+## End point para crear datos de prueba (local)
 
     http://localhost:{PORT}/createdata
 
-### End point para borrar toda la data
+## End point para borrar todos los datos (local)
 
      http://localhost:{PORT}/deletedata
 

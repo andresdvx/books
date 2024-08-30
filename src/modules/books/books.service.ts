@@ -25,7 +25,7 @@ export class BooksService implements IBook {
 
   async updateBook(id: string, data: Partial<Book>): Promise<Book | null> {
     const bookFound = await this.getBookById(id);
-    const book = await this.prismaService.book.update({
+    const book = this.prismaService.book.update({
       where: {
         id,
       },
@@ -35,8 +35,8 @@ export class BooksService implements IBook {
   }
 
   async deleteBook(id: string): Promise<Book | null> {
-    const bookFound = await this.getBookById(id);
-    const book = await this.prismaService.book.delete({ where: { id } });
+    const bookFound =  await this.getBookById(id);
+    const book = this.prismaService.book.delete({ where: { id } });
     return book;
   }
 

@@ -41,8 +41,12 @@ export class BooksService implements IBook {
   }
 
   async testData() {
-    return await this.prismaService.book.createMany({
+    return this.prismaService.book.createMany({
       data: booksData,
     })
+  }
+
+  async deleteData(){
+    return this.prismaService.book.deleteMany({})
   }
 }

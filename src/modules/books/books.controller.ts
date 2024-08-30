@@ -91,4 +91,16 @@ export class BooksController {
         : res.status(500).json(error);
     }
   }
+
+  async deleteData (req: Request, res: Response){
+    try{
+      const books = await this.bookService.deleteData();
+      return HttpResponse(200, 'books', res, books);
+    }catch(error: any){
+      console.log(error);
+      return error instanceof HttpError
+        ? res.status(error.statusCode).json(error)
+        : res.status(500).json(error);
+    }
+  }
 }
